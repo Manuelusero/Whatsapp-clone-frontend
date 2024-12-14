@@ -14,10 +14,11 @@ const Home = () => {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch("https://whatsapp-clone-backend-xb6f.onrender.com/api/contacts", {
+      const response = await fetch("https://whatsapp-clone-backend-liiz.onrender.com/api/contacts", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
+        credentials: 'include',
       });
 
       if (!response.ok) {

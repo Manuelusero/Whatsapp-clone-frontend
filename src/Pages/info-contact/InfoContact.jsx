@@ -12,7 +12,7 @@ const InfoContact = () => {
   useEffect(() => {
     const fetchContact = async () => {
       try {
-        const response = await fetch(`https://whatsapp-clone-backend-xb6f.onrender.com/api/contacts/${id}`, {
+        const response = await fetch(`https://whatsapp-clone-backend-liiz.onrender.com/api/contacts/${id}`, {
           credentials: 'include',
         });
         console.log("ID en la URL:", id);
