@@ -34,6 +34,7 @@ const AddContact = ({ addContact }) => {
                     Authorization: `Bearer ${token}`,
                 },
                 body: formData,
+                credentials: 'include',
             });
             const data = await response.json();
 
