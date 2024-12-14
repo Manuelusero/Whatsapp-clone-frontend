@@ -19,7 +19,9 @@ const Chat = () => {
     const fetchChat = async () => {
       console.log("Cargando el chat para el userId:", userId);
       try {
-        let response = await fetch(`https://whatsapp-clone-backend-xb6f.onrender.com/api/chats/${userId}`);
+        let response = await fetch(`https://whatsapp-clone-backend-xb6f.onrender.com/api/chats/${userId}`, {
+          credentials: 'include',
+        });
 
         if (response.ok) {
           const jsonResponse = await response.json();

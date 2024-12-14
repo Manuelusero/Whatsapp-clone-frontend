@@ -24,6 +24,7 @@ const VerifyAccount = () => {
             try {
                 const response = await fetch(`https://whatsapp-clone-backend-xb6f.onrender.com/api/auth/verify/${token}`, {
                     method: "GET",
+                    credentials: 'include',
                 });
                 const data = await response.json();
 
