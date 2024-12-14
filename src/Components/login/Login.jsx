@@ -25,7 +25,7 @@ const Login = () => {
         setLoading(true);
         try {
             console.log("Datos enviados al servidor:", formData);
-            const response = await fetch('https://whatsapp-clone-backend-liiz.onrender.com/api/auth/login', {
+            const response = await fetch('https://whatsapp-clone-backend-1-k6zk.onrender.com/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

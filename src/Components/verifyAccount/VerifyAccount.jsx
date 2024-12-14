@@ -22,7 +22,7 @@ const VerifyAccount = () => {
                 return;
             }
             try {
-                const response = await fetch(`https://whatsapp-clone-backend-liiz.onrender.com/api/auth/verify/${token}`, {
+                const response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/auth/verify/${token}`, {
                     method: "GET",
                     credentials: 'include',
                 });
