@@ -19,7 +19,7 @@ const Chat = () => {
     const fetchChat = async () => {
       console.log("Cargando el chat para el userId:", userId);
       try {
-        let response = await fetch(`http://localhost:5002/api/chats/${userId}`);
+        let response = await fetch(`https://whatsapp-clone-backend-xb6f.onrender.com/api/chats/${userId}`);
 
         if (response.ok) {
           const jsonResponse = await response.json();
@@ -53,7 +53,7 @@ const Chat = () => {
   const createEmptyChat = async () => {
     console.log("Creando un chat vacío...");
     try {
-      const response = await fetch("http://localhost:5002/api/chats", {
+      const response = await fetch("https://whatsapp-clone-backend-xb6f.onrender.com/api/chats", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -93,7 +93,7 @@ const Chat = () => {
     };
 
     try {
-      const response = await fetch(`http://localhost:5002/api/chats/${userId}`, {
+      const response = await fetch(`https://whatsapp-clone-backend-xb6f.onrender.com/api/chats/${userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

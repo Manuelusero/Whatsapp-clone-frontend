@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AddContact.css';
 
 const AddContact = ({ addContact }) => {
     const [contact, setContact] = useState({ name: '', email: '', phone: '' });
@@ -29,7 +28,7 @@ const AddContact = ({ addContact }) => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch('http://localhost:5002/api/contacts', {
+            const response = await fetch('https://whatsapp-clone-backend-xb6f.onrender.com/api/contacts', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,

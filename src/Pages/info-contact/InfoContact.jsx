@@ -12,7 +12,7 @@ const InfoContact = () => {
   useEffect(() => {
     const fetchContact = async () => {
       try {
-        const response = await fetch(`http://localhost:5002/api/contacts/${id}`);
+        const response = await fetch(`https://whatsapp-clone-backend-xb6f.onrender.com/api/contacts/${id}`);
         console.log("ID en la URL:", id);
         if (!response.ok) {
           throw new Error("No se pudo obtener la información del contacto");
