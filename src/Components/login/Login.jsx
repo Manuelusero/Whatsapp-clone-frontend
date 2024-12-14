@@ -35,6 +35,7 @@ const Login = () => {
             });
 
             const data = await response.json();
+            console.log("Respuesta del servidor:", response, data);
 
             if (response.ok) {
                 console.log('Login exitoso:', data);
