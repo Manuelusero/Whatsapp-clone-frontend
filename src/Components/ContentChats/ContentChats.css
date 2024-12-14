@@ -1,0 +1,41 @@
+.content-chats {
+  border-end-start-radius: 5px;
+}
+.info-contact {
+  background-color: #111111;
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.info-contact .icons {
+  margin-left: auto;
+}
+
+.info-contact .icons i {
+  margin-left: 12px;
+  font-size: 20px;
+  color: #fff;
+}
+
+.info-contact .bi-arrow-left {
+  color: #ffff;
+  padding-right: 5px;
+  margin-left: -8px;
+}
+
+.user-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+  display: flex;
+}
+
+.info-contact .user-name {
+  color: #fff;
+  font-size: 20px;
+}
+.user-name-link {
+  text-decoration: none;
+}

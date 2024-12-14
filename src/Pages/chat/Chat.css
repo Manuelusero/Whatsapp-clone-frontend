@@ -1,0 +1,29 @@
+.chat-container {
+  background-image: url(/src/assets/Images/fondooscuro.jpeg);
+  background-position: center;
+  background-size: contain;
+  background-repeat: repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  height: 100vh;
+  width: 100vw;
+  border-radius: 0px;
+}
+
+.message-container {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  z-index: 2;
+  color: white;
+}
+
+.info-contact {
+  z-index: 3;
+}
+
+.write-message {
+  z-index: 3;
+}

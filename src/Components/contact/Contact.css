@@ -1,0 +1,40 @@
+.contact-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.contact-info {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.contact-link {
+  text-decoration: none;
+}
+
+.contact-name {
+  color: #ffff;
+  text-decoration: none;
+  flex-grow: 1;
+  margin-right: 15px;
+  align-items: center;
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.contact-thumbnail {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.last-seen {
+  font-size: 13px;
+  color: grey;
+  margin-right: 5%;
+}

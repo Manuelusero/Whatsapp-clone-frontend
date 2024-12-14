@@ -1,0 +1,22 @@
+.bi-camera {
+  margin-left: auto;
+  margin-right: 10px;
+}
+.search-bar {
+  background-color: #282729;
+  border-radius: 30px;
+  width: 95%;
+  max-width: 1350px;
+  height: 35px;
+  margin: 10px auto;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  top: 0;
+  z-index: 100;
+}
+.search-bar::placeholder {
+  font-size: 14px;
+}
