@@ -29,14 +29,21 @@ const VerifyAccount = () => {
                 const data = await response.json();
 
                 if (response.ok) {
+
+                    setVerificationState({
+                        status: 'success',
+                        message: '¡Cuenta verificada exitosamente! Redirigiendo al login...'
+
+                    })
                     setVerificationState({
                         status: 'success',
                         message: '¡Cuenta verificada exitosamente! Redirigiendo al login...'
                     });
 
                     setTimeout(() => {
-                        navigate("/login");
+                        navigate('/login');
                     }, 3000);
+
                 } else {
                     setVerificationState({
                         status: 'error',
@@ -60,7 +67,16 @@ const VerifyAccount = () => {
     return (
         <div>
             <h2>Verificación de cuenta</h2>
-            {loading ? <p>Cargando...</p> : <p>{message}</p>}
+            {loading ? (
+                <p>Cargando...</p>
+            ) : (
+                <div>
+                    <p>{verificationState.message}</p>
+                    {verificationState.status === "error" && (
+                        <button onClick={() => navigate("/login")}>Ir al Login</button>
+                    )}
+                </div>
+            )}
         </div>
     );
 };
