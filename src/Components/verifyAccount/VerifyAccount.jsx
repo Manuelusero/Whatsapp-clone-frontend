@@ -39,9 +39,8 @@ const VerifyAccount = () => {
                         status: 'success',
                         message: '¡Cuenta verificada exitosamente! Redirigiendo al login...'
                     });
-
+                    navigate('/login');
                     setTimeout(() => {
-                        navigate('/login');
                     }, 3000);
 
                 } else {
