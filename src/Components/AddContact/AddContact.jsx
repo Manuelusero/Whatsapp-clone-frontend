@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './AddContact.css';
 
 const AddContact = ({ addContact }) => {
     const [contact, setContact] = useState({ name: '', email: '', phone: '' });
