@@ -26,23 +26,29 @@ const Chat = () => {
         if (response.ok) {
           const jsonResponse = await response.json();
           const { chat, contact } = jsonResponse;
+
           setCurrentChat({
             ...chat,
             name: contact?.name || chat.name,
             thumbnail: contact?.thumbnail || chat.thumbnail,
           });
+
           setMemoryMsg(chat.messages || []);
         } else if (response.status === 404) {
           console.log("Chat no encontrado, creando uno nuevo...");
-          const newChat = await createEmptyChat();
+
+          const newChat = await createEmptyChat(userId);
           setCurrentChat(newChat);
           setMemoryMsg(newChat.messages || []);
+
         } else {
           throw new Error("Error al obtener el chat");
         }
       } catch (error) {
         console.error("Error al cargar el chat:", error.message);
+
         setCurrentChat({ name: "Error al cargar", thumbnail: "" });
+
       } finally {
         setLoading(false);
       }
@@ -52,8 +58,9 @@ const Chat = () => {
   }, [userId]);
 
 
-  const createEmptyChat = async () => {
-    console.log("Creando un chat vacío...");
+  const createEmptyChat = async (contactId) => {
+    console.log("Creando un chat vacío...", contactId);
+
     try {
       const response = await fetch("https://whatsapp-clone-backend-1-k6zk.onrender.com/api/chats", {
         method: "POST",
@@ -61,8 +68,9 @@ const Chat = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name: "Nuevo Chat",
-          thumbnail: "https://via.placeholder.com/50",
+          contactId,
+          // name: "Nuevo Chat",
+          // thumbnail: "https://via.placeholder.com/50",
           messages: [],
         }),
       });
@@ -72,8 +80,16 @@ const Chat = () => {
         console.error("Error al crear el chat, status:", response.status);
         throw new Error("Error al crear el chat");
       }
+      const newChat = await response.json();
+      console.log("Nuevo chat creado:", newChat);
 
-      return await response.json();
+      return {
+        ...newChat,
+        name: newChat.contact?.name || "Nuevo Chat", // Asignar nombre del contacto
+        thumbnail: newChat.contact?.thumbnail || "https://via.placeholder.com/50", // Asignar imagen
+      };
+
+
     } catch (error) {
       console.error("Error al crear el chat:", error.message);
       return { name: "Chat no disponible", thumbnail: "", messages: [] };
