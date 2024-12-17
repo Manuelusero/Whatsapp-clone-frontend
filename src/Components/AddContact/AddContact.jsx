@@ -39,11 +39,11 @@ const AddContact = ({ addContact }) => {
                 credentials: 'include',
             });
             const data = await response.json();
-            if (data && data.contacts) {
-                setContact(data.contacts);
+            if (data && Array.isArray(data.contacts)) {
+                console.log('Contacto creado exitosamente:', data.contacts);
             }
             else {
-                console.error('Error al crear contacto:');
+                console.error('Error al crear contacto:', data);
             }
 
 
