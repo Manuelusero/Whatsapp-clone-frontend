@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { ListContact } from "../../Components";
 import { Link } from "react-router-dom";
+import AddContact from "../../Components/AddContact/AddContact";
 
 
 const Home = () => {
@@ -26,7 +27,7 @@ const Home = () => {
       }
 
       const data = await response.json();
-      setContact(data);
+      setContact(data.contacts || []);
     } catch (error) {
       console.error("Error al cargar contactos:", error);
     }
