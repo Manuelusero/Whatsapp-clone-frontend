@@ -39,8 +39,13 @@ const AddContact = ({ addContact }) => {
                 credentials: 'include',
             });
             const data = await response.json();
+            if (data && data.contacts) {
+                setContact(data.contacts);
+            }
+            else {
+                console.error('Error al crear contacto:');
+            }
 
-            setContact(data.contacts);
 
             if (!response.ok) {
                 throw new Error('Error en la creación del contacto');

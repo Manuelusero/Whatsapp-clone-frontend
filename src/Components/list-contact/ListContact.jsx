@@ -7,14 +7,30 @@ const ListContact = ({ contacts }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredContacts, setFilteredContacts] = useState(contacts);
 
-
   useEffect(() => {
-    const results =
-      contacts.filter(contact =>
-        contact && contact.name && contact.name.toLowerCase().includes(searchTerm.toLowerCase())
+    if (Array.isArray(contacts)) {
+      const results = contacts.filter(
+        (contact) =>
+          contact &&
+          contact.name &&
+          contact.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
-    setFilteredContacts(results);
+      setFilteredContacts(results);
+    } else {
+      console.error("El valor de contacts no es un array:", contacts);
+      setFilteredContacts([]); // Asegúrate de no intentar mapear datos inválidos
+    }
   }, [searchTerm, contacts]);
+  // useEffect(() => {
+  //   if(Array.isArray(contacts)){
+
+  //   }
+  //   const results =
+  //     contacts.filter(contact =>
+  //       contact && contact.name && contact.name.toLowerCase().includes(searchTerm.toLowerCase())
+  //     );
+  //   setFilteredContacts(results);
+  // }, [searchTerm, contacts]);
 
   return (
     <div>
