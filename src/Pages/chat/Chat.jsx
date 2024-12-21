@@ -69,8 +69,7 @@ const Chat = () => {
         },
         body: JSON.stringify({
           contactId,
-          // name: "Nuevo Chat",
-          // thumbnail: "https://via.placeholder.com/50",
+          userId,
           messages: [],
         }),
       });
