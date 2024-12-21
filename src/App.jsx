@@ -24,7 +24,7 @@ const App = () => {
           <Route path="/verify/:token" element={<VerifyAccount />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home contacts={contacts} addContact={addContact} />} />
-          <Route path="/add-contact" element={<AddContact />} />
+          <Route path="/add-contact" element={<AddContact addContact={(addContact)} />} />
           <Route path="/chat/:id" element={<Chat />} />
           <Route path="/info-contact/:id" element={<InfoContact />} />
         </Routes>

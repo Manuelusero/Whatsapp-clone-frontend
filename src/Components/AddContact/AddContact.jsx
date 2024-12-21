@@ -50,7 +50,7 @@ const AddContact = ({ addContact }) => {
             console.log('Contacto creado exitosamente:', data);
 
             if (addContact) {
-                addContact();
+                addContact(data.contact);
             }
 
             alert('Contacto creado exitosamente');

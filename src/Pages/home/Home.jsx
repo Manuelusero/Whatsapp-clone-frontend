@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { ListContact } from "../../Components";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import AddContact from "../../Components/AddContact/AddContact";
 
 
 const Home = () => {
   const [contacts, setContact] = useState([]);
+  const navigate = useNavigate();
 
 
   useEffect(() => {
-    fetchContacts();
-  }, []);
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("No hay token disponible. Redirigiendo al login...");
+      navigate('/login');
+    } else {
+      fetchContacts(token);
+    }
+  }, [navigate]);
 
-  const fetchContacts = async () => {
+  const fetchContacts = async (token) => {
     try {
       const response = await fetch("https://whatsapp-clone-backend-1-k6zk.onrender.com/api/contacts", {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${token}`,
         },
         credentials: 'include',
       });
@@ -38,6 +45,13 @@ const Home = () => {
     } catch (error) {
       console.error("Error al cargar contactos:", error);
       setContact([]); // Evita un estado indefinido
+    }
+  };
+
+  const handleAddContact = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      fetchContacts(token);
     }
   };
 
