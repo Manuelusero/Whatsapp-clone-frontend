@@ -6,6 +6,7 @@ const AddContact = ({ addContact }) => {
     const [contact, setContact] = useState({ name: '', email: '', phone: '' });
     const [image, setImage] = useState(null);
     const navigate = useNavigate();
+    addContact()
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -30,6 +31,7 @@ const AddContact = ({ addContact }) => {
         try {
             const token = localStorage.getItem('token');
             console.log('Token enviado:', token);
+
             const response = await fetch('https://whatsapp-clone-backend-1-k6zk.onrender.com/api/contacts', {
                 method: 'POST',
                 headers: {

@@ -1,11 +1,11 @@
 
 import React, { useState, useEffect } from "react";
 import "./ListContact.css";
-import Contact from "../contact/Contact";
+import Contact from "../contact/Contact"
 
 const ListContact = ({ contacts }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredContacts, setFilteredContacts] = useState(contacts);
+  const [filteredContacts, setFilteredContacts] = useState([]);
 
   useEffect(() => {
     if (Array.isArray(contacts)) {
@@ -42,10 +42,14 @@ const ListContact = ({ contacts }) => {
         onChange={e => setSearchTerm(e.target.value)}
       />
 
-      {filteredContacts.map((contact) => {
-        console.log("Contacto:", contact);
-        return <Contact contact={contact} key={contact.userId} />;
-      })}
+      {filteredContacts.length > 0 ? (
+        filteredContacts.map((contact) => {
+          console.log("Contacto:", contact);
+          return <Contact contact={contact} key={contact.id || contact._id} />;
+        })
+      ) : (
+        <p>No se encontraron contactos.</p>
+      )}
     </div>
   );
 };

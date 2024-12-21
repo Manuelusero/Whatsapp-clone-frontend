@@ -27,9 +27,17 @@ const Home = () => {
       }
 
       const data = await response.json();
-      setContact(data.contacts || []);
+      console.log("Datos recibidos de la API:", data);// Ver los datos recibidos agregado recien
+
+      if (data && Array.isArray(data.contacts)) {
+        setContact(data.contacts);
+      } else {
+        console.warn("La API no devolvió un array de contactos:", data);
+        setContact([]);
+      }
     } catch (error) {
       console.error("Error al cargar contactos:", error);
+      setContact([]); // Evita un estado indefinido
     }
   };
 
