@@ -6,7 +6,7 @@ const AddContact = ({ addContact }) => {
     const [contact, setContact] = useState({ name: '', email: '', phone: '' });
     const [image, setImage] = useState(null);
     const navigate = useNavigate();
-    addContact()
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -40,17 +40,17 @@ const AddContact = ({ addContact }) => {
                 body: formData,
                 credentials: 'include',
             });
-            const data = await response.json();
-            if (data && Array.isArray(data.contacts)) {
-                console.log('Contacto creado exitosamente:', data.contacts);
-            }
-            else {
-                console.error('Error al crear contacto:', data);
-            }
 
+            const data = await response.json();
 
             if (!response.ok) {
                 throw new Error('Error en la creación del contacto');
+            }
+
+            console.log('Contacto creado exitosamente:', data);
+
+            if (addContact) {
+                addContact();
             }
 
             alert('Contacto creado exitosamente');
@@ -62,7 +62,6 @@ const AddContact = ({ addContact }) => {
             console.error('Error al crear contacto:', error);
             alert('Error al crear el contacto');
         }
-
     };
     return (
         <div className="create-contact-container">
