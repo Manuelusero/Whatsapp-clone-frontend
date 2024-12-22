@@ -108,7 +108,7 @@ const Chat = () => {
     };
 
     try {
-      const response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/chats/${userId}`, {
+      const response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/chats/${contactId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -141,7 +141,7 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
-      <ContentChats name={currentChat.name} thumbnail={currentChat.thumbnail} id={userId} />
+      <ContentChats name={currentChat.name} thumbnail={currentChat.thumbnail} id={contactId} />
       <div className="message-container">
         <Message memoryMsg={memoryMsg} />
       </div>
