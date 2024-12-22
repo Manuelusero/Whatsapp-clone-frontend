@@ -1,8 +1,9 @@
 import React from "react";
 import "./ContentChats.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
-const ContentChats = ({ name, thumbnail, id }) => {
+const ContentChats = ({ contact, id }) => {
+  const { contactId } = useParams();
   return (
     <div className="content-chats">
       <div className="info-contact">
@@ -10,10 +11,10 @@ const ContentChats = ({ name, thumbnail, id }) => {
           <i className="bi bi-arrow-left"></i>
         </Link>
         <div className="img-container">
-          <img src={thumbnail} alt="user-pic" className="user-pic" />
+          <img src={contact.thumbnail} alt="user-pic" className="user-pic" />
         </div>
         <Link className="user-name-link" to={`/info-contact/${id}`}>
-          <span className="user-name">{name}</span>
+          <span className="user-name">{contact.name}</span>
         </Link>
         <div className="icons">
           <i className="bi bi-camera-video"></i>
