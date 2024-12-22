@@ -149,7 +149,7 @@ const Chat = () => {
 
   return (
     <div className="chat-container">
-      <ContentChats name={currentChat.name} thumbnail={currentChat.thumbnail} id={contactId} />
+      <ContentChats name={currentChat.name} thumbnail={currentChat.thumbnail} contactId={contactId} />
       <div className="message-container">
         <Message memoryMsg={memoryMsg} />
       </div>
