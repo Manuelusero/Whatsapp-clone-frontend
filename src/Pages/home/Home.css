@@ -26,7 +26,7 @@
 .bi.bi-plus-circle {
   margin-left: 10px;
   cursor: pointer;
-  color: inherit;
+  color: white;
 }
 .bi.bi-plus-circle:focus,
 .bi.bi-plus-circle:active {
