@@ -23,9 +23,14 @@
   margin-right: 25px;
   margin-left: 5px;
 }
-.bi bi-plus-circle {
+.bi.bi-plus-circle {
   margin-left: 10px;
   cursor: pointer;
+  color: inherit;
+}
+.bi.bi-plus-circle:focus,
+.bi.bi-plus-circle:active {
+  outline: none;
   color: inherit;
 }
 
