@@ -73,7 +73,7 @@ const VerifyAccount = () => {
                 <div>
                     <p className="message">{verificationState.message}</p>
                     {verificationState.status === "success" && (
-                        <button onClick={() => navigate("/login")}>Ir al Login</button>
+                        <button onClick={() => navigate("/")}>Ir al Login</button>
                     )}
                 </div>
             )}
