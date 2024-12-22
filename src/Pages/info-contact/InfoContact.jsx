@@ -14,6 +14,9 @@ const InfoContact = () => {
       try {
         const response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/contacts/${contactId}`, {
           credentials: 'include',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
         console.log("ID en la URL:", contactId);
         if (!response.ok) {

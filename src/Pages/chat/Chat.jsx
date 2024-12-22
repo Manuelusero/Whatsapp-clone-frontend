@@ -20,6 +20,9 @@ const Chat = () => {
       console.log("Cargando el chat para el contacto:", contactId);
       try {
         let response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/chats/${contactId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
           credentials: 'include',
         });
 
@@ -68,6 +71,7 @@ const Chat = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
           contactId,
@@ -114,6 +118,7 @@ const Chat = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ messages: [...memoryMsg, newMessage] }),
       });
