@@ -11,6 +11,7 @@ const Chat = () => {
   const [currentChat, setCurrentChat] = useState(null);
   const [memoryMsg, setMemoryMsg] = useState([]);
   const [loading, setLoading] = useState(true);
+  const token = localStorage.getItem('token');
 
 
 
