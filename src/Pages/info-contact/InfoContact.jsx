@@ -19,6 +19,7 @@ const InfoContact = () => {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log("Valor de contactId:", contactId);
         console.log("ID en la URL:", contactId);
         if (!response.ok) {
           throw new Error("No se pudo obtener la información del contacto");

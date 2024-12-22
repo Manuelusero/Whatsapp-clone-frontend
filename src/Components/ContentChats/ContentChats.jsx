@@ -3,6 +3,8 @@ import "./ContentChats.css";
 import { Link } from "react-router-dom";
 
 const ContentChats = ({ name, thumbnail, contactId }) => {
+  console.log("contactId en ContentChats:", contactId);
+
   return (
     <div className="content-chats">
       <div className="info-contact">
