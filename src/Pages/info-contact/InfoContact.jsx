@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 
 const InfoContact = () => {
-  const { id } = useParams();
+  const { userId, contactId } = useParams();
   const [contact, setContact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -12,10 +12,10 @@ const InfoContact = () => {
   useEffect(() => {
     const fetchContact = async () => {
       try {
-        const response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/contacts/${id}`, {
+        const response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/contacts/${contactId}`, {
           credentials: 'include',
         });
-        console.log("ID en la URL:", id);
+        console.log("ID en la URL:", contactId);
         if (!response.ok) {
           throw new Error("No se pudo obtener la información del contacto");
         }
@@ -30,7 +30,7 @@ const InfoContact = () => {
     };
 
     fetchContact();
-  }, [id]);
+  }, [contactId]);
 
 
   if (loading) {
@@ -42,21 +42,20 @@ const InfoContact = () => {
     return <div className="info-container">No se pudo cargar la información del contacto</div>;
   }
 
-  const { name, thumbnail } = contact;
 
   return (
     <div className="info-container">
       <div className="info-header-container">
         <div className="title-container">
-          <Link to={`/chat/${id}`}>
+          <Link to={`/chat/${userId}/${contactId}`}>
             <i className="bi bi-arrow-left"></i>
           </Link>
 
         </div>
         <div className="image-container">
-          <img src={thumbnail} alt="" className="image" />
+          <img src={contact.thumbnail} alt="" className="image" />
         </div>
-        <div className="name-container">{name}</div>
+        <div className="name-container">{contact.name}</div>
         <div className="options-container">
           <div className="call-container">
             <i className="bi bi-telephone"></i>

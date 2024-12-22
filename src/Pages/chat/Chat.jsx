@@ -7,7 +7,7 @@ import "./Chat.css";
 
 
 const Chat = () => {
-  const { id: userId } = useParams();
+  const { userId, contactId } = useParams();
   const [currentChat, setCurrentChat] = useState(null);
   const [memoryMsg, setMemoryMsg] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,9 +17,9 @@ const Chat = () => {
   useEffect(() => {
 
     const fetchChat = async () => {
-      console.log("Cargando el chat para el userId:", userId);
+      console.log("Cargando el chat para el userId:", userId, contactId);
       try {
-        let response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/chats/${userId}`, {
+        let response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/chats/${userId}/${contactId}`, {
           credentials: 'include',
         });
 
@@ -37,7 +37,7 @@ const Chat = () => {
         } else if (response.status === 404) {
           console.log("Chat no encontrado, creando uno nuevo...");
 
-          const newChat = await createEmptyChat(userId);
+          const newChat = await createChat(contactId);
           setCurrentChat(newChat);
           setMemoryMsg(newChat.messages || []);
 
@@ -58,7 +58,7 @@ const Chat = () => {
   }, [userId]);
 
 
-  const createEmptyChat = async (contactId) => {
+  const createChat = async (contactId) => {
     console.log("Creando un chat vacío...", contactId);
 
     try {
@@ -70,7 +70,6 @@ const Chat = () => {
         body: JSON.stringify({
           contactId,
           userId,
-          messages: [],
         }),
       });
       console.log("Respuesta del servidor al crear el chat:", response);
@@ -84,7 +83,7 @@ const Chat = () => {
 
       return {
         ...newChat,
-        name: newChat.contact?.name || "Nuevo Chat", // Asignar nombre del contacto
+        name: newChat.contact?.name || "Nuevo Chat",
         thumbnail: newChat.contact?.thumbnail || "https://via.placeholder.com/50", // Asignar imagen
       };
 
