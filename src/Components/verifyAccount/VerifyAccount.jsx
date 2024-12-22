@@ -40,8 +40,8 @@ const VerifyAccount = () => {
                         status: 'success',
                         message: '¡Cuenta verificada exitosamente! Redirigiendo al login...'
                     });
-                    await new Promise(resolve => setTimeout(resolve, 3000));
-                    navigate('/login');
+                    await new Promise(resolve => setTimeout(resolve, 250));
+                    navigate('/');
 
 
                 } else {
