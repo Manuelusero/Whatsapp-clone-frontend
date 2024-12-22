@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import "./VerifyAccount.css";
 
 const VerifyAccount = () => {
     const { token } = useParams();
