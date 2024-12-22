@@ -28,7 +28,7 @@ const VerifyAccount = () => {
                     credentials: 'include',
                 });
                 const data = await response.json();
-
+                setLoading(false);
                 if (response.ok) {
 
                     setVerificationState({
