@@ -23,6 +23,8 @@ const Chat = () => {
           credentials: 'include',
         });
 
+        console.log("fetchChat:response", response);
+
         if (response.ok) {
           const jsonResponse = await response.json();
           const { chat, contact } = jsonResponse;
