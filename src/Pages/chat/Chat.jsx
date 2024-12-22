@@ -7,7 +7,7 @@ import "./Chat.css";
 
 
 const Chat = () => {
-  const { userId, contactId } = useParams();
+  const { contactId } = useParams();
   const [currentChat, setCurrentChat] = useState(null);
   const [memoryMsg, setMemoryMsg] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -17,9 +17,9 @@ const Chat = () => {
   useEffect(() => {
 
     const fetchChat = async () => {
-      console.log("Cargando el chat para el userId:", userId, contactId);
+      console.log("Cargando el chat para el contacto:", contactId);
       try {
-        let response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/chats/${userId}/${contactId}`, {
+        let response = await fetch(`https://whatsapp-clone-backend-1-k6zk.onrender.com/api/chats/${contactId}`, {
           credentials: 'include',
         });
 
@@ -55,7 +55,7 @@ const Chat = () => {
     };
 
     fetchChat();
-  }, [userId]);
+  }, [contactId]);
 
 
   const createChat = async (contactId) => {
@@ -69,7 +69,6 @@ const Chat = () => {
         },
         body: JSON.stringify({
           contactId,
-          userId,
         }),
       });
       console.log("Respuesta del servidor al crear el chat:", response);
@@ -84,7 +83,7 @@ const Chat = () => {
       return {
         ...newChat,
         name: newChat.contact?.name || "Nuevo Chat",
-        thumbnail: newChat.contact?.thumbnail || "https://via.placeholder.com/50", // Asignar imagen
+        thumbnail: newChat.contact?.thumbnail || "https://via.placeholder.com/50",
       };
 
 

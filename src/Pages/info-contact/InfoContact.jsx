@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 
 const InfoContact = () => {
-  const { userId, contactId } = useParams();
+  const { contactId } = useParams();
   const [contact, setContact] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -47,7 +47,7 @@ const InfoContact = () => {
     <div className="info-container">
       <div className="info-header-container">
         <div className="title-container">
-          <Link to={`/chat/${userId}/${contactId}`}>
+          <Link to={`/chat/${contactId}`}>
             <i className="bi bi-arrow-left"></i>
           </Link>
 

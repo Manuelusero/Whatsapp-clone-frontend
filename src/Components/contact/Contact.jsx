@@ -14,7 +14,7 @@ const Contact = ({ contact = {} }) => {
   return (
     <div className="contact-item">
       <Link
-        to={`/chat/${userId}/${contact.id}`}
+        to={`/chat/${contact.id}`}
         className="contact-link"
         onClick={() => console.log("ID seleccionado:", contact.id)}>
         <div className="contact-info">
