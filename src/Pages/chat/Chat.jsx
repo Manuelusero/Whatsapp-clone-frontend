@@ -74,9 +74,7 @@ const Chat = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify({
-          contactId,
-        }),
+        body: JSON.stringify({ contactId }),
       });
       console.log("Respuesta del servidor al crear el chat:", response);
 
@@ -90,7 +88,7 @@ const Chat = () => {
       return {
         ...newChat,
         name: newChat.contact?.name, // || "Nuevo Chat",
-        thumbnail: newChat.contact?.thumbnail, //|| "https://via.placeholder.com/50",
+        thumbnail: newChat.contact?.thumbnail || "default-avatar.png",
       };
 
 
