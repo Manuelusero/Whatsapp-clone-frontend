@@ -47,6 +47,9 @@ const InfoContact = () => {
     return <div className="info-container">No se pudo cargar la información del contacto</div>;
   }
 
+  const imageSrc = contact.thumbnail
+    ? (contact.thumbnail.startsWith('data:image') ? contact.thumbnail : `data:image/jpeg;base64,${contact.thumbnail}`)
+    : "iconoguardado.avif";
 
   return (
     <div className="info-container">
@@ -58,7 +61,7 @@ const InfoContact = () => {
 
         </div>
         <div className="image-container">
-          <img src={contact.thumbnail} alt="" className="image" />
+          <img src={imageSrc} alt="" className="image" />
         </div>
         <div className="name-container">{contact.name}</div>
         <div className="options-container">
