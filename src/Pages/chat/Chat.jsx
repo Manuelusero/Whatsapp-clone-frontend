@@ -31,15 +31,15 @@ const Chat = () => {
 
         if (response.ok) {
           const jsonResponse = await response.json();
-          const { chat, contact } = jsonResponse;
+          const { name, thumbnail, messages } = jsonResponse;
 
           setCurrentChat({
-            ...chat,
-            name: contact?.name || chat.name,
-            thumbnail: contact?.thumbnail || chat.thumbnail,
+            name,
+            thumbnail,
+            messages,
           });
 
-          setMemoryMsg(chat.messages || []);
+          setMemoryMsg(messages || []);
         } else if (response.status === 404) {
           console.log("Chat no encontrado, creando uno nuevo...");
 
