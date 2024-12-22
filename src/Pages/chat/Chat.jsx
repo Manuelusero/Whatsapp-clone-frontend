@@ -89,8 +89,8 @@ const Chat = () => {
 
       return {
         ...newChat,
-        name: newChat.contact?.name || "Nuevo Chat",
-        thumbnail: newChat.contact?.thumbnail || "https://via.placeholder.com/50",
+        name: newChat.contact?.name, // || "Nuevo Chat",
+        thumbnail: newChat.contact?.thumbnail, //|| "https://via.placeholder.com/50",
       };
 
 
