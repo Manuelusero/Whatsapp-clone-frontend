@@ -67,11 +67,11 @@ const VerifyAccount = () => {
         <div>
             <h2>Verificación de cuenta</h2>
             {loading ? (
-                <p>Cargando...</p>
+                <p className="message">Cargando...</p>
             ) : (
                 <div>
-                    <p>{verificationState.message}</p>
-                    {verificationState.status === "error" && (
+                    <p className="message">{verificationState.message}</p>
+                    {verificationState.status === "success" && (
                         <button onClick={() => navigate("/login")}>Ir al Login</button>
                     )}
                 </div>
