@@ -20,9 +20,9 @@ const App = () => {
     <>
       <div className="">
         <Routes>
-          <Route path="/" element={<Register />} />
+          <Route path="/" element={<Login />} />
           <Route path="/verify/:token" element={<VerifyAccount />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/home" element={<Home contacts={contacts} addContact={addContact} />} />
           <Route path="/add-contact" element={<AddContact addContact={(addContact)} />} />
           <Route path="/chat/:contactId" element={<Chat />} />

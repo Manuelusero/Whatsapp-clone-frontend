@@ -83,7 +83,7 @@ const Register = () => {
                 </form>
                 {error && <p className="error-message">{error}</p>}
                 <p className="login-redirect">¿Ya tienes una cuenta?
-                    <Link to="/login" className="login-link">
+                    <Link to="/" className="login-link">
                         <br /> Presione aqui
                     </Link>
 

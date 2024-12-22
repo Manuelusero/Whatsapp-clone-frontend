@@ -24,7 +24,6 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            console.log("Datos enviados al servidor:", formData);
             const response = await fetch('https://whatsapp-clone-backend-1-k6zk.onrender.com/api/auth/login', {
                 method: 'POST',
                 headers: {
@@ -35,13 +34,12 @@ const Login = () => {
             });
 
             const data = await response.json();
-            console.log("Respuesta del servidor:", response, data);
 
             if (response.ok) {
-                console.log('Login exitoso:', data);
-                alert('¡Inicio de sesión exitoso!');
+
                 localStorage.setItem('token', data.token);
                 navigate('/home');
+
             } else if (response.status === 403) {
                 setError("Tu cuenta no está verificada. Revisa tu correo para activarla.");
             } else {
@@ -88,7 +86,7 @@ const Login = () => {
 
                 <p className="register-redirect">
                     ¿No tienes una cuenta?{" "}
-                    <Link to="/" className="register-link">
+                    <Link to="/register" className="register-link">
                         Regístrate aquí
                     </Link>
                     .
