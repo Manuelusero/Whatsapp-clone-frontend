@@ -4,7 +4,7 @@ import "./Message.css";
 const Message = ({ memoryMsg }) => {
 
   if (!memoryMsg || memoryMsg.length === 0) {
-    return <p>No hay mensajes todavía.</p>;
+    return <p>Envia un mensaje.</p>;
   }
 
   return (

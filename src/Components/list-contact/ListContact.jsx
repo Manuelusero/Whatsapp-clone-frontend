@@ -48,7 +48,7 @@ const ListContact = ({ contacts }) => {
           return <Contact contact={contact} key={contact.id || contact._id} />;
         })
       ) : (
-        <p>No se encontraron contactos.</p>
+        <p>Agrega un contacto!</p>
       )}
     </div>
   );
