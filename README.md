@@ -1,19 +1,39 @@
-Clone Whatsapp
+Clone WhatsApp
+
+Este es mi proyecto final Full Stack, que combina React, Node.js, Express y MongoDB Atlas para replicar una versión funcional de WhatsApp.
 
 Proceso de Desarrollo
 
-1. Creación de los Componentes:
-   Para empezar, dividimos la aplicación en componentes individuales. Cada sección importante de la aplicación (como el chat, la lista de contactos, y los formularios de mensajes) tiene su propio componente. Esto facilita el mantenimiento y la reutilización del código.
+1. Creación de los Componentes y Configuración Inicial del Frontend:
 
-2. Manejo del Estado con useEffect y localStorage:
-   Posteriormente, implementamos el hook useEffect de React para manejar los efectos secundarios, como las actualizaciones de datos y la interacción con el navegador. También integramos localStorage para almacenar datos persistentes en el navegador, permitiendo que el estado de la aplicación persista incluso al recargar la página.
+- Empecé dividiendo la aplicación en componentes, como el chat, la lista de contactos, y los formularios. Esto facilitó la organización del código.
+- Implementé el estado con useEffect y persistencia de datos usando localStorage. Esto permite que los datos no se pierdan si la página se recarga.
 
-3. Implementación de Formularios e Inputs:
-   Agregamos múltiples entradas de formulario para permitir la interacción del usuario, como enviar mensajes o buscar contactos. Estos formularios manejan el estado internamente y lo actualizan en el componente padre cuando es necesario.
+2.  Desafíos en la Configuración del Backend:
 
-4. Hacer la Aplicación Responsive:
-   Finalmente, implementamos media queries en CSS para hacer que la aplicación se adaptara a diferentes tamaños de pantalla, asegurando que fuera completamente responsive. Esto era crucial para proporcionar una buena experiencia de usuario en dispositivos móviles y de escritorio.
+- El backend fue construido con Node.js y Express. Configuré rutas para manejar autenticación, contactos, chats, y subida de imágenes.
+- Una de las partes más desafiantes fue conectar las rutas de la API y asegurar que se comunicaran correctamente con el frontend.
 
-Conclusión:
+3.  Subida de Imágenes:
 
-El proceso de desarrollo incluyó la creación de componentes modulares, la implementación de hooks para manejar el estado y los efectos secundarios, la integración de formularios para la interacción del usuario, y la creación de un diseño adaptable a varios dispositivos. Cada paso presentaba desafíos únicos, pero con un enfoque estructurado, se resolvieron adecuadamente.
+- Para subir imágenes, utilicé la librería multer. Configuré un middleware que permite filtrar los formatos de imagen (JPEG, PNG, JPG) y ajustar el tamaño máximo del archivo. Aunque funciona, me di cuenta de que algunas imágenes tardan en cargarse correctamente en el frontend y a veces es necesario refrescar la página.
+
+4.  Integración de MongoDB Atlas:
+
+- Usé MongoDB Atlas como base de datos, donde almaceno usuarios, contactos, y mensajes. Configurar la conexión fue sencillo, pero trabajar con modelos y relaciones entre ellos tomó tiempo para adaptarlo a la lógica de la app.
+
+5.  Estilo y Adaptabilidad:
+
+- El diseño es responsive gracias a los media queries en CSS. Aseguré que la app se viera bien en dispositivos móviles y de escritorio.
+
+Lo Más Complejo del Proyecto:
+
+Lo más desafiante fue hacer que las rutas del backend y frontend se integraran correctamente, especialmente al manejar autenticación, subida de imágenes, y mostrar los contactos de manera dinámica. Fue un aprendizaje enorme para mejorar mi comprensión de cómo conectar ambas partes.
+
+Funcionalidades Principales:
+
+- Autenticación de Usuarios: Login y registro con JWT.
+- Gestión de Contactos: Agregar y visualizar contactos desde el frontend.
+- Chats: Crear nuevos chats con usuarios y mantener un registro de los mensajes.
+- Subida de Imágenes: Subir imágenes para contactos con validación de formatos y tamaño.
+- Base de Datos: MongoDB Atlas para almacenar datos de usuarios, contactos y mensajes.
