@@ -22,7 +22,7 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/register`, {
+            const response = await fetch('https://whatsapp-clone-backend-production-ab27.up.railway.app/api/auth/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
