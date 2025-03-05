@@ -7,7 +7,7 @@ const Contact = ({ contact = {} }) => {
 
   const imageSrc = thumbnail
     ? (thumbnail.startsWith('data:image') ? thumbnail : `data:image/jpeg;base64,${thumbnail}`)
-    : "iconoguardado.avif";
+    : "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2NjYyI+PC9yZWN0Pjwvc3ZnPg==";
 
   console.log("Thumbnail:", imageSrc);
 
