@@ -32,7 +32,7 @@ const AddContact = ({ addContact }) => {
             const token = localStorage.getItem('token');
             console.log('Token enviado:', token);
 
-            const response = await fetch('https://whatsapp-clone-backend-1-k6zk.onrender.com/api/contacts', {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contacts`, {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,
