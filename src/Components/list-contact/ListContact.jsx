@@ -18,19 +18,9 @@ const ListContact = ({ contacts }) => {
       setFilteredContacts(results);
     } else {
       console.error("El valor de contacts no es un array:", contacts);
-      setFilteredContacts([]); // Asegúrate de no intentar mapear datos inválidos
+      setFilteredContacts([]);
     }
   }, [searchTerm, contacts]);
-  // useEffect(() => {
-  //   if(Array.isArray(contacts)){
-
-  //   }
-  //   const results =
-  //     contacts.filter(contact =>
-  //       contact && contact.name && contact.name.toLowerCase().includes(searchTerm.toLowerCase())
-  //     );
-  //   setFilteredContacts(results);
-  // }, [searchTerm, contacts]);
 
   return (
     <div>
